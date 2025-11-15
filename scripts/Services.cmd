@@ -1,20 +1,20 @@
 @echo off
-set "SCRIPT_PATH=.\scripts\_setSvc.cmd"
+set "_SETSVC=.\scripts\_setSvc.cmd"
 
 @REM Diagnostic - Disabling these services will break Task Manager's network monitor
-call "%SCRIPT_PATH%" "diagsvc" 4
-call "%SCRIPT_PATH%" "DPS" 4
-call "%SCRIPT_PATH%" "WdiServiceHost" 4
-call "%SCRIPT_PATH%" "WdiSystemHost" 4
+call "%_SETSVC%" "diagsvc" 4
+call "%_SETSVC%" "DPS" 4
+call "%_SETSVC%" "WdiServiceHost" 4
+call "%_SETSVC%" "WdiSystemHost" 4
 
 @REM Telemetry
-call "%SCRIPT_PATH%" "whesvc" 4
-call "%SCRIPT_PATH%" "wuqisvc" 4
+call "%_SETSVC%" "whesvc" 4
+call "%_SETSVC%" "wuqisvc" 4
 
 @REM Data Usage
-call "%SCRIPT_PATH%" "DusmSvc" 4
+call "%_SETSVC%" "DusmSvc" 4
 
 @REM Unnecessary
-call "%SCRIPT_PATH%" "Bonjour Service" 4
+call "%_SETSVC%" "Bonjour Service" 4
 
-call "%SCRIPT_PATH%" "Themes" 4
+call "%_SETSVC%" "Themes" 4
