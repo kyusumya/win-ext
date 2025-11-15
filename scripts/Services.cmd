@@ -1,13 +1,20 @@
 @echo off
+set "SCRIPT_PATH=.\scripts\_setSvc.cmd"
 
-@REM Diagnostic
-@REM reg add "HKLM\SYSTEM\CurrentControlSet\Services\diagsvc" /v "Start" /t REG_DWORD /d 4 /f
-@REM reg add "HKLM\SYSTEM\CurrentControlSet\Services\DPS" /v "Start" /t REG_DWORD /d 4 /f
-@REM reg add "HKLM\SYSTEM\CurrentControlSet\Services\WdiServiceHost" /v "Start" /t REG_DWORD /d 4 /f
-@REM reg add "HKLM\SYSTEM\CurrentControlSet\Services\WdiSystemHost" /v "Start" /t REG_DWORD /d 4 /f
+@REM Diagnostic - Disabling these services will break Task Manager's network monitor
+call "%SCRIPT_PATH%" "diagsvc" 4
+call "%SCRIPT_PATH%" "DPS" 4
+call "%SCRIPT_PATH%" "WdiServiceHost" 4
+call "%SCRIPT_PATH%" "WdiSystemHost" 4
+
+@REM Telemetry
+call "%SCRIPT_PATH%" "whesvc" 4
+call "%SCRIPT_PATH%" "wuqisvc" 4
 
 @REM Data Usage
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\DusmSvc" /v "Start" /t REG_DWORD /d 4 /f
+call "%SCRIPT_PATH%" "DusmSvc" 4
 
-@REM Themes
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\Themes" /v "Start" /t REG_DWORD /d 4 /f
+@REM Unnecessary
+call "%SCRIPT_PATH%" "Bonjour Service" 4
+
+call "%SCRIPT_PATH%" "Themes" 4

@@ -1,9 +1,11 @@
+@echo off
+
 powershell "Get-AppxPackage -AllUsers "*Xbox*" | Remove-AppxPackage"
 powershell "Get-AppxPackage -AllUsers "*GamingApp*" | Remove-AppxPackage"
 
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\XboxNetApiSvc" /v "Start" /t REG_DWORD /d 4 /f
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\XblGameSave" /v "Start" /t REG_DWORD /d 4 /f
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\XblAuthManager" /v "Start" /t REG_DWORD /d 4 /f
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\XboxGipSvc" /v "Start" /t REG_DWORD /d 4 /f
-
-
+setSvc.cmd XboxNetApiSvc 4
+setSvc.cmd XblGameSave 4
+setSvc.cmd XblAuthManager 4
+setSvc.cmd XboxGipSvc 4
+setSvc.cmd BcastDVRUserService 4
+setSvc.cmd GameInputSvc 4
