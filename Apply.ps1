@@ -14,12 +14,8 @@ if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 
 $scripts = $PSScriptRoot + "\scripts"
 
-cmd /c "`"$scripts\Cleaner.cmd`""
 cmd /c "`"$scripts\Explorer.cmd`""
 cmd /c "`"$scripts\Features.cmd`""
 cmd /c "`"$scripts\Power.cmd`""
 cmd /c "`"$scripts\Security.cmd`""
 cmd /c "`"RunAsTI.cmd`" `"$scripts\Services.cmd`""
-
-$ans = Read-Host 'Uninstall_Xbox.cmd (y/N)'
-if ($ans -match '^[Yy]') { cmd /c "`"$scripts\Uninstall_Xbox.cmd`"" } else {  }
