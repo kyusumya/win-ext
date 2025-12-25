@@ -1,5 +1,5 @@
 @echo off
-set "_SETSVC=.\scripts\_setSvc.cmd"
+set _SETSVC="%~1\_setSvc.cmd"
 
 @REM Diagnostic - Disabling these services will break Task Manager's network monitor
 call "%_SETSVC%" "diagsvc" 4
@@ -18,3 +18,4 @@ call "%_SETSVC%" "DusmSvc" 4
 call "%_SETSVC%" "Bonjour Service" 4
 
 call "%_SETSVC%" "Themes" 4
+
